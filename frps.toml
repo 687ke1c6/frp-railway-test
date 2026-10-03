@@ -1,0 +1,2 @@
+bindPort = {{ .Envs.PORT }}
+auth.token = "{{ .Envs.AUTH_TOKEN }}"
