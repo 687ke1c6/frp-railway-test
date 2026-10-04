@@ -1,0 +1,10 @@
+serverAddr = "{{ .Envs.SERVER_ADDR }}"
+serverPort = {{ .Envs.SERVER_PORT }}
+auth.token = "{{ .Envs.AUTH_TOKEN }}"
+
+[[proxies]]
+name = "{{ .Envs.PROXY_NAME }}"
+type = "tcp"
+localIP = "{{ .Envs.LOCAL_IP }}"
+localPort = {{ .Envs.LOCAL_PORT }}
+remotePort = {{ .Envs.REMOTE_PORT }}
