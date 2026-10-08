@@ -18,6 +18,10 @@ RUN apk add --no-cache ca-certificates
 COPY --from=downloader /frpc /usr/local/bin/frpc
 COPY --from=downloader /frps /usr/local/bin/frps
 
-COPY frps.toml /etc/frp/frps.toml
+RUN mkdir -p /etc/frp \
+    && printf '%s\n' \
+        'bindPort = {{ .Envs.SERVER_PORT }}' \
+        'auth.token = "{{ .Envs.AUTH_TOKEN }}"' \
+        > /etc/frp/frps.toml
 
 CMD ["frps", "-c", "/etc/frp/frps.toml"]
