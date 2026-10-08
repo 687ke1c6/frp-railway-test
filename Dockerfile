@@ -18,4 +18,6 @@ RUN apk add --no-cache ca-certificates
 COPY --from=downloader /frpc /usr/local/bin/frpc
 COPY --from=downloader /frps /usr/local/bin/frps
 
-CMD ["frpc", "-c", "/etc/frp/frpc.toml"]
+COPY frps.toml /etc/frp/frps.toml
+
+CMD ["frpc", "-c", "/etc/frp/frps.toml"]
