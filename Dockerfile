@@ -20,4 +20,4 @@ COPY --from=downloader /frps /usr/local/bin/frps
 
 COPY frps.toml /etc/frp/frps.toml
 
-CMD ["frpc", "-c", "/etc/frp/frps.toml"]
+CMD ["frps", "-c", "/etc/frp/frps.toml"]
